@@ -1,4 +1,4 @@
-#![allow(dead_code, non_camel_case_types)]
+#![allow(dead_code, non_camel_case_types, improper_ctypes)]
 #![cfg_attr(rustfmt, rustfmt_skip)]
 
 extern crate dlib;
@@ -11,7 +11,7 @@ pub use xkeysym::key as keysyms;
 use std::os::raw::{c_char, c_int, c_uint, c_void};
 
 use bitflags::bitflags;
-use dlib::dlopen_external_library;
+use dlib::external_library_universal;
 use log::info;
 use once_cell::sync::OnceCell;
 
@@ -185,7 +185,7 @@ bitflags!(
     }
 );
 
-dlopen_external_library!(XkbCommon,
+external_library_universal!(feature = "dlopen-xkbcommon", XkbCommon, "xkbcommon",
 functions:
     fn xkb_keysym_get_name(xkb_keysym_t, *mut c_char, usize) -> c_int,
     fn xkb_keysym_from_name(*const c_char, xkb_keysym_flags) -> xkb_keysym_t,
@@ -281,7 +281,7 @@ functions:
 );
 
 // Compose and dead-keys support module
-dlopen_external_library!(XkbCommonCompose,
+external_library_universal!(feature = "dlopen-xkbcommon", XkbCommonCompose, "xkbcommon",
 functions:
     fn xkb_compose_table_new_from_locale(
         *mut xkb_context,

@@ -16,7 +16,7 @@ pub enum xkb_x11_setup_xkb_extension_flags {
     XKB_X11_SETUP_XKB_EXTENSION_NO_FLAGS = 0,
 }
 
-dlopen_external_library!(XkbCommonX11,
+external_library_universal!(feature="dlopen-xkbcommon", XkbCommonX11, "xkbcommon-x11",
 functions:
     fn xkb_x11_setup_xkb_extension(
         *mut xcb_connection_t,

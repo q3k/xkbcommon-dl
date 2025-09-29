@@ -12,7 +12,9 @@ rust-version = "1.64"
 [badges]
 
 [features]
+default = ["dlopen-xkbcommon"]
 x11 = []
+dlopen-xkbcommon = []
 
 [dependencies]
 bitflags = "2.3.1"
