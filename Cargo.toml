@@ -1,6 +1,6 @@
 [package]
 name = "xkbcommon-dl"
-version = "0.4.2"
+version = "0.4.999"
 documentation = "https://docs.rs/xkbcommon-dl/"
 repository = "https://github.com/rust-windowing/xkbcommon-dl"
 authors = ["Francesca Frangipane <francesca@comfysoft.net>"]
@@ -18,7 +18,7 @@ dlopen-xkbcommon = []
 
 [dependencies]
 bitflags = "2.3.1"
-dlib = { git = "https://github.com/q3k/dlib", rev = "7bc840379c1a90dbf62de56da4cfe527ea2c903f" }
+dlib = { git = "https://github.com/q3k/dlib", rev = "ac5a4822263a2e5eaf2c635eaff3a3b7b51eec3b" }
 log = "0.4"
 once_cell = "1.17"
 xkeysym = "0.2.0"
